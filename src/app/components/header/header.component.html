@@ -1,0 +1,57 @@
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <!-- TODO replace with RockPaperScissors icon -->
+      <svg data-test="logo"
+           class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap" />
+      </svg>
+      <span
+            data-test="title"
+            class="fs-4">
+        Rock-Paper-Scissors
+      </span>
+    </a>
+
+    <ul data-test="pills"
+        class="nav nav-pills">
+      <li data-test="home"
+          class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">Home</a>
+      </li>
+      <li data-test="records"
+          class="nav-item">
+        <a href="#" class="nav-link">Records</a>
+      </li>
+      <li data-test="rules"
+          class="nav-item">
+        <a href="#" class="nav-link">Rules</a>
+      </li>
+      <li data-test="about"
+          class="nav-item">
+        <a href="#" class="nav-link">About</a>
+      </li>
+    </ul>
+
+    <div data-test="menu"
+         class="dropdown text-end">
+      <div ngbDropdown class="d-inline-block">
+        <a href="#"
+           class="d-block link-dark text-decoration-none dropdown-toggle"
+           id="dropdownUser1"
+           ngbDropdownToggle>
+          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button data-test="settings"
+                  ngbDropdownItem>Settings</button>
+          <button data-test="profile"
+                  ngbDropdownItem>Profile</button>
+          <hr class="dropdown-divider">
+          <button data-test="signout"
+                  ngbDropdownItem>Sign out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

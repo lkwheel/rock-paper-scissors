@@ -1,0 +1,19 @@
+.game-controls {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.game-button {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.ng-fa-icon.game-button {
+  font-size: 2.5rem;
+  transition: 100ms;
+}
+
+.ng-fa-icon.game-button:hover {
+  font-size: 2.7em;
+}

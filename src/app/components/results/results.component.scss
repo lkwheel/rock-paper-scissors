@@ -1,0 +1,24 @@
+
+.results {
+  font-size: 1.5rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+.result-score {
+  margin-left: .1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.ng-fa-icon.game-button {
+  opacity: .5;
+}
+
+.ng-fa-icon.game-button.winner {
+  opacity: 1;
+  font-size: 2rem;
+}

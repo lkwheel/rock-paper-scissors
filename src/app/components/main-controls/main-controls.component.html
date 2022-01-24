@@ -1,16 +1,17 @@
 <div class="game-controls">
   <div data-test="gameButton">
-    <fa-icon [icon]="paperIcon"
-             class="game-button"></fa-icon>
+    <fa-icon [icon]="rock.icon"
+             class="game-button"
+             (click)="selection(rock)"></fa-icon>
   </div>
   <div data-test="gameButton">
-    <fa-icon [icon]="rockIcon"
-             class="game-button"></fa-icon>
+    <fa-icon [icon]="paper.icon"
+             class="game-button"
+             (click)="selection(paper)"></fa-icon>
   </div>
   <div data-test="gameButton">
-    <fa-icon [icon]="scissorsIcon"
-             class="game-button"></fa-icon>
+    <fa-icon [icon]="scissors.icon"
+             class="game-button"
+             (click)="selection(scissors)"></fa-icon>
   </div>
 </div>
-
-<app-results></app-results>

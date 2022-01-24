@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faHandPaper, faHandRock, faHandScissors } from '@fortawesome/free-regular-svg-icons';
+import { GameSelection } from '../../model/game-selection';
+import { PAPER, ROCK, SCISSORS, SELECTIONS } from '../../utils/game-engine';
 
 @Component({
   selector: 'app-main-controls',
@@ -7,13 +8,18 @@ import { faHandPaper, faHandRock, faHandScissors } from '@fortawesome/free-regul
   styleUrls: ['./main-controls.component.scss']
 })
 export class MainControlsComponent implements OnInit {
-  paperIcon = faHandPaper;
-  rockIcon = faHandRock;
-  scissorsIcon = faHandScissors;
+
+  rock: GameSelection = SELECTIONS[ROCK];
+  paper: GameSelection = SELECTIONS[PAPER];
+  scissors: GameSelection = SELECTIONS[SCISSORS];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selection(e: GameSelection) {
+    console.log(e);
   }
 
 }

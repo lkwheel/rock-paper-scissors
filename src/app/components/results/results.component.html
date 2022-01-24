@@ -8,12 +8,16 @@
     Computer
     <span class="result-score">0</span>
   </div>
-  <div class="result-selection">
-    <fa-icon [icon]="scissorsIcon"
-             class="game-button winner"></fa-icon>
-  </div>
-  <div class="result-selection">
-    <fa-icon [icon]="rockIcon"
-             class="game-button"></fa-icon>
-  </div>
+
+  <ng-container *ngFor="let result of results$ | async">
+    <div class="result-selection">
+      <fa-icon [icon]="result.playerIcon"
+               [ngClass]="getWinnerClass(result.playerWins)"></fa-icon>
+    </div>
+    <div class="result-selection">
+      <fa-icon [icon]="result.opponentIcon"
+               [ngClass]="getWinnerClass(result.opponentWins)"></fa-icon>
+    </div>
+  </ng-container>
+
 </div>

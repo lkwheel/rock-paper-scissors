@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/services/game.service';
 import { GameSelection } from '../../model/game-selection';
-import { PAPER, ROCK, SCISSORS, SELECTIONS } from '../../utils/game-engine';
+import { PAPER, ROCK, runGame, SCISSORS, SELECTIONS } from '../../utils/game-engine';
 
 @Component({
   selector: 'app-main-controls',
@@ -13,13 +14,15 @@ export class MainControlsComponent implements OnInit {
   paper: GameSelection = SELECTIONS[PAPER];
   scissors: GameSelection = SELECTIONS[SCISSORS];
 
-  constructor() { }
+  constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
   }
 
   selection(e: GameSelection) {
-    console.log(e);
+    const result = runGame(e);
+    console.log(result);
+    this.gameService.sendGameResult(result);
   }
 
 }

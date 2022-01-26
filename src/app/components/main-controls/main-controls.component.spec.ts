@@ -22,8 +22,4 @@ describe('MainControlsComponent', () => {
   it('should display rock, paper, scissors buttons', () => {
     expect(fixture.nativeElement.querySelectorAll('[data-test="gameButton"]').length).toBe(3);
   });
-
-  it('should display the results', () => {
-    expect(fixture.nativeElement.querySelector('[data-test="results"]')).toBeTruthy();
-  });
 });

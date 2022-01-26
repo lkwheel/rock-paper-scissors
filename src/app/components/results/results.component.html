@@ -2,19 +2,23 @@
      class="results">
   <div>
     You
-    <span class="result-score">0</span>
+    <span data-test="playerScore"
+          class="result-score">{{totalPlayerWins}}</span>
   </div>
   <div>
-    Computer
-    <span class="result-score">0</span>
+    Opponent
+    <span data-test="opponentScore"
+          class="result-score">{{totalOpponentWins}}</span>
   </div>
 
-  <ng-container *ngFor="let result of results$ | async">
-    <div class="result-selection">
+  <ng-container *ngFor="let result of results">
+    <div data-test="playerResult"
+         class="result-selection">
       <fa-icon [icon]="result.playerIcon"
                [ngClass]="getWinnerClass(result.playerWins)"></fa-icon>
     </div>
-    <div class="result-selection">
+    <div data-test="computerResult"
+         class="result-selection">
       <fa-icon [icon]="result.opponentIcon"
                [ngClass]="getWinnerClass(result.opponentWins)"></fa-icon>
     </div>

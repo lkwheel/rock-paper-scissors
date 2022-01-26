@@ -56,3 +56,6 @@ export function runGame(selection: GameSelection): GameResult {
     opponentWins: opponentWinner
   };
 }
+
+export const playerScoreReducer = (accumulator: number, item: GameResult) => accumulator + (item.playerWins ? 1 : 0);
+export const opponentScoreReducer = (accumulator: number, item: GameResult) => accumulator + (item.opponentWins ? 1 : 0);

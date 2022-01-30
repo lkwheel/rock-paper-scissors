@@ -4,5 +4,6 @@ export interface GameResult {
   playerIcon: IconDefinition,
   opponentIcon: IconDefinition,
   playerWins: boolean,
-  opponentWins: boolean
+  opponentWins: boolean,
+  gameTimestamp: Date
 }

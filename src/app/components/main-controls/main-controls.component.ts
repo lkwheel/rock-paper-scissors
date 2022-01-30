@@ -21,7 +21,6 @@ export class MainControlsComponent implements OnInit {
 
   selection(e: GameSelection) {
     const result = runGame(e);
-    console.log(result);
     this.gameService.sendGameResult(result);
   }
 

@@ -2,16 +2,22 @@
   <div data-test="gameButton">
     <fa-icon [icon]="rock.icon"
              class="game-button"
+             ngbTooltip="Rock"
+             placement="bottom"
              (click)="selection(rock)"></fa-icon>
   </div>
   <div data-test="gameButton">
     <fa-icon [icon]="paper.icon"
              class="game-button"
+             ngbTooltip="Paper"
+             placement="bottom"
              (click)="selection(paper)"></fa-icon>
   </div>
   <div data-test="gameButton">
     <fa-icon [icon]="scissors.icon"
              class="game-button"
+             ngbTooltip="Scissors"
+             placement="bottom"
              (click)="selection(scissors)"></fa-icon>
   </div>
 </div>

@@ -53,7 +53,8 @@ export function runGame(selection: GameSelection): GameResult {
     playerIcon: selection.icon,
     opponentIcon: opponentSelection.icon,
     playerWins: playerWinner,
-    opponentWins: opponentWinner
+    opponentWins: opponentWinner,
+    gameTimestamp: new Date()
   };
 }
 

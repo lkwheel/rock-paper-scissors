@@ -1,7 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
-import { faHandPaper, faHandRock, faHandScissors } from '@fortawesome/free-regular-svg-icons';
 import { Observable, of, Subject } from 'rxjs';
 import { GameResult } from '../model/game-result';
+import { GameResultPage } from '../model/game-result-page';
+import { opponentScoreReducer, playerScoreReducer } from '../utils/game-engine';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class GameService implements OnInit {
 
   private results: GameResult[] = [];
 
-  private _gameResults = new Subject<GameResult[]>();
-  gameResults$ = this._gameResults.asObservable();
+  private updateResults = new Subject<void>();
+  updateResults$ = this.updateResults.asObservable();
 
   constructor() { }
 
@@ -19,6 +20,28 @@ export class GameService implements OnInit {
   }
 
   sendGameResult(gameResult: GameResult) {
-    this._gameResults.next(this.results = [...this.results, gameResult]);
+    this.results = [...this.results, gameResult];
+    this.updateResults.next();
+  }
+
+  getGameResults(sortDirection: string, pageNumber: number, pageSize: number): Observable<GameResultPage> {
+    const page = pageNumber || 0;
+    const perPage = pageSize;
+    const offset = page * perPage;
+    let _results: GameResult[] = [];
+    if (sortDirection === 'desc') {
+      _results = this.results.sort((a, b) => a.gameTimestamp < b.gameTimestamp ? 1 : -1);
+    } else if (sortDirection === 'asc') {
+      _results = this.results.sort((a, b) => a.gameTimestamp > b.gameTimestamp ? 1 : -1);
+    }
+    const paginatedItems = _results.slice(offset).slice(0, pageSize);
+    const totalPlayerWins = this.results.reduce(playerScoreReducer, 0);
+    const totalOpponentWins = this.results.reduce(opponentScoreReducer, 0);
+    return of({
+      playerWins: totalPlayerWins,
+      opponentWins: totalOpponentWins,
+      page: paginatedItems,
+      totalGames: this.results.length
+    });
   }
 }

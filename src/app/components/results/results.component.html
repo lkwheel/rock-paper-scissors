@@ -5,6 +5,7 @@
     <span data-test="playerScore"
           class="result-score">{{totalPlayerWins}}</span>
   </div>
+  <div></div>
   <div>
     Opponent
     <span data-test="opponentScore"
@@ -13,15 +14,25 @@
 
   <ng-container *ngFor="let result of results">
     <div data-test="playerResult"
-         class="result-selection">
+         class="result-selection player">
       <fa-icon [icon]="result.playerIcon"
                [ngClass]="getWinnerClass(result.playerWins)"></fa-icon>
     </div>
+    <div class="result-selection timestamp">
+      {{ result.gameTimestamp | date: 'y-MM-dd h:mm:ss.SSS z' }}
+    </div>
     <div data-test="computerResult"
-         class="result-selection">
+         class="result-selection opponent">
       <fa-icon [icon]="result.opponentIcon"
                [ngClass]="getWinnerClass(result.opponentWins)"></fa-icon>
     </div>
   </ng-container>
 
+</div>
+<div *ngIf="results && results.length > 0">
+  <mat-paginator (page)="getGameResultPage()"
+                 [length]="totalGames"
+                 pageSize="3"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>
